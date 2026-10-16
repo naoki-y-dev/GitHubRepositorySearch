@@ -1,0 +1,44 @@
+name: GitHubRepositorySearch
+options:
+  bundleIdPrefix: com.yourname
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+
+targets:
+  GitHubRepositorySearch:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: GitHubRepositorySearch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourname.GitHubRepositorySearch
+        SWIFT_VERSION: 5.9
+        INFOPLIST_FILE: GitHubRepositorySearch/Info.plist
+    info:
+      path: GitHubRepositorySearch/Info.plist
+      properties:
+        UILaunchScreen:
+          UIColorName: ""
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: false
+
+  GitHubRepositorySearchTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: GitHubRepositorySearchTests
+    dependencies:
+      - target: GitHubRepositorySearch
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourname.GitHubRepositorySearchTests
+        SWIFT_VERSION: 5.9
+        GENERATE_INFOPLIST_FILE: YES
